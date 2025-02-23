@@ -13,16 +13,13 @@
 
 def substrings(word, array_of_substrings)
   return_hash = Hash.new(0)
-  word.split(' ').filter do | word |
+
+  word.split(' ').each do | word |
     array_of_substrings.each do | substring | 
-      p "word: #{word} substring: #{substring} #{word.include?(substring)}" 
-      if word.downcase.include?(substring.downcase)
-        p "word: #{word} substring #{substring}"
-        return_hash[substring] += 1  
-      end
+      return_hash[substring] += 1 if word.downcase.include?(substring.downcase)
     end
   end
-  return return_hash
+  return_hash
 end
 
 dictionary = ["below","down","go","going","horn","how","howdy","it","i","low","own","part","partner","sit"]
